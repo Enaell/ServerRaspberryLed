@@ -119,7 +119,7 @@ if( isset($_GET['submit']) )
 
   		                  <div class="colorpicker">
     		                  <div id="colorpicker2"></div>
-      	                  <input type="text" name="val1" id="val1" id="color2" />
+      	                  <input type="text" name="val1" id="color2" />
 		                    </div>
 
                       </div>
