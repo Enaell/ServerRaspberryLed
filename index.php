@@ -19,6 +19,8 @@ if( isset($_GET['submit']) )
 
 	if(isset($_POST['submit2']))
 	{
+
+    echo "test";
 		exec('touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt');
 	}
 ?>
@@ -126,9 +128,9 @@ if( isset($_GET['submit']) )
                     </div>
                   </div>
                 </div>  
-                  <input type="submit" name="submit" value="send" class="btn btn-primary validateBtn"></input>
+                  <input type="submit" name="submit" value="send"></input>
 
-                  <button name="submit1" class="btn btn-primary validateBtn">Submit</button>
+                  <button name="submit1" class="btn btn-primary validateBtn">old Submit</button>
               </form>
 
 
