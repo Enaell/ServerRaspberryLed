@@ -5,7 +5,10 @@ if( isset($_GET['submit']) )
 {
     //be sure to validate and clean your variables
     $val1 = htmlentities($_GET['val1']);
-    exec("touch '".$val1."'");
+
+    exec("sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py \\'".val1"'");
+
+    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt");
     echo $val1;
 }
 ?>
@@ -73,19 +76,6 @@ if( isset($_GET['submit']) )
     </div>
   </nav>
 
-
-  <form action="" method="get">
-    Insert a number: 
-    <input type="text" name="val1" id="val1"></input>
-
-    <?php echo "ciaoooo"; ?>
-
-    <input type="submit" name="submit" value="send"></input>
-  </form>
-
-
-
-
   <div class="container-fluid">
 
 
@@ -135,7 +125,7 @@ if( isset($_GET['submit']) )
 
 
 
-              <form method="post">
+              <form method="get">
                 <p>
                   <button name="submit2" class="btn btn-primary stopBtn">Stop</button>
                 </p>
