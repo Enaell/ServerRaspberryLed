@@ -6,24 +6,29 @@ if( isset($_GET['submit']) )
     //be sure to validate and clean your variables
     $val1 = htmlentities($_GET['val1']);
 
-    exec("sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py \\'".val1"'");
+    $files = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Color/*'); // get all file names
+    foreach($files as $file)
+    { // iterate files
+      if(is_file($file))
+        unlink($file); // delete file
+    }
 
-    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt");
-    echo $val1;
+    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Color/$val1" );
+
 }
 ?>
 
 
 <?php
-	if(isset($_GET['submit1']))
+	if(isset($_POST['submit1']))
 	{
-		exec('sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py  > /dev/null 2>/dev/null &');
+		exec('sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py > /dev/null 2>/dev/null &');
 	}
 
 	if(isset($_POST['submit2']))
 	{
 
-    echo "test";
+    		echo "test";
 		exec('touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt');
 	}
 ?>
@@ -95,7 +100,7 @@ if( isset($_GET['submit']) )
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade in active" id="home">
 
-              <form action="" method="get">
+
 
                 <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
                   <div class="panel panel-default">
@@ -108,25 +113,31 @@ if( isset($_GET['submit']) )
                     </div>
                     <div id="collapseOneTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneTabOne">
                       <div class="panel-body">
-
-  		                  <div class="colorpicker">
-    		                  <div id="colorpicker2"></div>
-      	                  <input type="text" name="val1" id="color2" />
-		                    </div>
-
+                        <form action="" method="get">
+  		          <div class="colorpicker">
+    		          <div id="colorpicker2"></div>
+      	                    <input type="text" name="val1" id="color2" />
+		          </div>
+                          <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn">
+                          </input>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>  
-                  <input type="submit" name="submit" value="send"></input>
-
-                  <button name="submit1" class="btn btn-primary validateBtn">old Submit</button>
-              </form>
 
 
 
-              <form method="get">
+
+
+
+
+
+
+              <form method="post">
                 <p>
+                  <button name="submit1" class="btn btn-primary validateBtn">Start Led Matrix</button>
+
                   <button name="submit2" class="btn btn-primary stopBtn">Stop</button>
                 </p>
               </form>

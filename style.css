@@ -125,6 +125,13 @@ nav
 	color: white;
 }
 
+.selectBtn
+{
+  bottom: 35px;
+  right: 150px;
+  position: absolute;
+}
+
 .validateBtn
 {
 	right: 150px;
