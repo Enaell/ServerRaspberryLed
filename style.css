@@ -127,9 +127,7 @@ nav
 
 .selectBtn
 {
-  bottom: 35px;
-  right: 150px;
-  position: absolute;
+  margin-top: 500px;
 }
 
 .validateBtn

@@ -18,6 +18,13 @@ if( isset($_GET['submit']) )
 }
 ?>
 
+<?php
+   if(isset($_POST['submitGif']))
+   {
+   $selected_val = $_POST['Gif'];
+   echo "you have selected :" .$selected_val; 
+   }
+?>
 
 <?php
 	if(isset($_POST['submit1']))
@@ -100,40 +107,51 @@ if( isset($_GET['submit']) )
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade in active" id="home">
 
-
-
                 <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
                   <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOneTabOne">
                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseOneTabOne" aria-expanded="false" aria-controls="collapseOneTabOne">
-                        <h4 class="panel-title">
-                          Time Color
-                        </h4>
+                        <h4 class="panel-title">Time Color</h4>
                       </a>
                     </div>
                     <div id="collapseOneTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneTabOne">
                       <div class="panel-body">
                         <form action="" method="get">
-  		          <div class="colorpicker">
-    		          <div id="colorpicker2"></div>
-      	                    <input type="text" name="val1" id="color2" />
-		          </div>
-                          <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn">
-                          </input>
+			  <div class="col-xs-10">
+  		            <div class="colorpicker">
+    		              <div id="colorpicker2"></div>
+      	                      <input type="text" name="val1" id="color2" />
+		            </div>
+			  </div>
+			  <div class="col-xs-2">
+                            <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn"></input>
+			  </div>
                         </form>
                       </div>
                     </div>
                   </div>
-                </div>  
-
-
-
-
-
-
-
-
-
+                </div>
+		
+                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwoTabOne">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwoTabOne" aria-expanded="false" aria-controls="collapseTwoTabOne">
+                        <h4 class="panel-title">Time Color</h4>
+                      </a>
+                    </div>
+                    <div id="collapseTwoTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoTabOne">
+                      <div class="panel-body">
+                        <form action="" method="post">
+			  <select name="Gif">
+			    <option style="width:"  value="Totoro"> Totoro </option>
+			    <option value="snowman"> Snowman </option>
+			  </select>
+			  <input type="submit" name="submitGif" value="Select Gif">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <form method="post">
                 <p>
                   <button name="submit1" class="btn btn-primary validateBtn">Start Led Matrix</button>
