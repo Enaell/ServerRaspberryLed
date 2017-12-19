@@ -12,19 +12,24 @@ if( isset($_GET['submit']) )
       if(is_file($file))
         unlink($file); // delete file
     }
-
+   
     exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Color/$val1" );
 
 }
 ?>
 
 <?php
-   if(isset($_POST['submitGif']))
+   $gifDirectory = "/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/";
+   if( isset($_GET['submitGif']) )
    {
-   $selected_val = $_POST['Gif'];
-   echo "you have selected :" .$selected_val; 
-   }
+    //be sure to validate and clean your variables
+     $gifVal = htmlentities($_GET['gifVal']);
+
+   echo($gifVal);
+    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/$gifVal" );
+}
 ?>
+
 
 <?php
 	if(isset($_POST['submit1']))
@@ -124,6 +129,8 @@ if( isset($_GET['submit']) )
 		            </div>
 			  </div>
 			  <div class="col-xs-2">
+			    
+			    
                             <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn"></input>
 			  </div>
                         </form>
@@ -136,18 +143,29 @@ if( isset($_GET['submit']) )
                   <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingTwoTabOne">
                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwoTabOne" aria-expanded="false" aria-controls="collapseTwoTabOne">
-                        <h4 class="panel-title">Time Color</h4>
+                        <h4 class="panel-title">Gif</h4>
                       </a>
                     </div>
                     <div id="collapseTwoTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoTabOne">
                       <div class="panel-body">
-                        <form action="" method="post">
-			  <select name="Gif">
-			    <option style="width:"  value="Totoro"> Totoro </option>
-			    <option value="snowman"> Snowman </option>
-			  </select>
-			  <input type="submit" name="submitGif" value="Select Gif">
-                        </form>
+                          <?php			     
+                            $dir = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/*');
+			    foreach($dir as $file)
+                             {
+			     $file = explode('gifDirectory/', $file)[1];
+                            echo('<div class="gifList">');
+			     echo('<div class="test">'.$file.'</div>');
+                             echo('</div>');
+                            }
+                          ?>   
+			  <form action="" method="get">
+			    <div class="col-xs-8"></div>
+			    <div class="col-xs-4">
+			      <input type="text" name="gifVal" id="gifVal"/>
+			      <input name="submitGif" type="submit" class="btn btn-primary " value="Select Gif"></input>
+
+			    </div>
+			  </form>
                       </div>
                     </div>
                   </div>
