@@ -128,10 +128,11 @@ nav
 
 .gifList
 {
-	background-image: linear-gradient(to right, #8a6d3b 50%, #000 50%);
+    margin-top: 5px;
+    background-image: linear-gradient(to left, #FFF 50%, #337ab7 50%);
     background-size: 200% 100%;
     background-repeat: no-repeat;
-    background-position: bottom left;
+    background-position: bottom right;
     -webkit-transition: all 0.25s ease-in;
     -moz-transition: all 0.25s ease-in;
     transition: all 0.25s ease-in;
@@ -139,13 +140,13 @@ nav
     cursor: pointer;
 }
 
-.gifList:hover, .gifList:focus
+.gifList:hover, .gifList:focus, .gifList.active
 {
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
   /** START THE FINAL STATE STYLING **/
-  background-position: bottom right;
+  background-position: bottom left;
   color: #fff;
 }
 

@@ -5,6 +5,9 @@ $(document).ready(function ()
     {
         var text = $( this ).text();
         $( "#gifVal" ).val( text );
+
+	$('.gifList').removeClass('active');
+	$(this).addClass('active');
     });
 
 	 $(function () {

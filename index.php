@@ -19,14 +19,21 @@ if( isset($_GET['submit']) )
 ?>
 
 <?php
-   $gifDirectory = "/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/";
    if( isset($_GET['submitGif']) )
    {
     //be sure to validate and clean your variables
      $gifVal = htmlentities($_GET['gifVal']);
 
    echo($gifVal);
-    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/$gifVal" );
+
+       $gifDirectoryfiles = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/*'); // get all file names
+    foreach($gifDirectoryfiles as $gifFile)
+   { // iterate files
+      if(is_file($gifFile))
+        unlink($gifFile); // delete file
+    }
+   
+    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/$gifVal" );
 }
 ?>
 
@@ -159,7 +166,7 @@ if( isset($_GET['submit']) )
 			            <form action="" method="get">
 			              <div class="col-xs-8"></div>
 			              <div class="col-xs-4">
-			                <input type="text" name="gifVal" id="gifVal"/>
+			                <input type="text" name="gifVal" onfocus="blur()" id="gifVal"/>
 			                <input name="submitGif" type="submit" class="btn btn-primary " value="Select Gif"/>
 			              </div>
 			            </form>
