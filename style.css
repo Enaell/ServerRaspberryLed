@@ -125,6 +125,30 @@ nav
 	color: white;
 }
 
+
+.gifList
+{
+	background-image: linear-gradient(to right, #8a6d3b 50%, #000 50%);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    -webkit-transition: all 0.25s ease-in;
+    -moz-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+
+    cursor: pointer;
+}
+
+.gifList:hover, .gifList:focus
+{
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  /** START THE FINAL STATE STYLING **/
+  background-position: bottom right;
+  color: #fff;
+}
+
 .selectBtn
 {
   margin-top: 500px;

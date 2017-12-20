@@ -122,17 +122,15 @@ if( isset($_GET['submit']) )
                     <div id="collapseOneTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneTabOne">
                       <div class="panel-body">
                         <form action="" method="get">
-			  <div class="col-xs-10">
-  		            <div class="colorpicker">
-    		              <div id="colorpicker2"></div>
+			              <div class="col-xs-10">
+  		                    <div class="colorpicker">
+    		                  <div id="colorpicker2"></div>
       	                      <input type="text" name="val1" id="color2" />
-		            </div>
-			  </div>
-			  <div class="col-xs-2">
-			    
-			    
-                            <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn"></input>
-			  </div>
+		                    </div>
+			              </div>
+			              <div class="col-xs-2">
+                            <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn"/>
+			              </div>
                         </form>
                       </div>
                     </div>
@@ -148,24 +146,23 @@ if( isset($_GET['submit']) )
                     </div>
                     <div id="collapseTwoTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoTabOne">
                       <div class="panel-body">
-                          <?php			     
-                            $dir = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/*');
-			    foreach($dir as $file)
-                             {
-			     $file = explode('gifDirectory/', $file)[1];
+                        <?php			     
+                          $dir = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifDirectory/*');
+			              foreach($dir as $file)
+                          {
+			                $file = explode('gifDirectory/', $file)[1];
                             echo('<div class="gifList">');
-			     echo('<div class="test">'.$file.'</div>');
-                             echo('</div>');
-                            }
-                          ?>   
-			  <form action="" method="get">
-			    <div class="col-xs-8"></div>
-			    <div class="col-xs-4">
-			      <input type="text" name="gifVal" id="gifVal"/>
-			      <input name="submitGif" type="submit" class="btn btn-primary " value="Select Gif"></input>
-
-			    </div>
-			  </form>
+			                echo('<div class="test">'.$file.'</div>');
+                            echo('</div>');
+                          }
+                        ?>   
+			            <form action="" method="get">
+			              <div class="col-xs-8"></div>
+			              <div class="col-xs-4">
+			                <input type="text" name="gifVal" id="gifVal"/>
+			                <input name="submitGif" type="submit" class="btn btn-primary " value="Select Gif"/>
+			              </div>
+			            </form>
                       </div>
                     </div>
                   </div>
