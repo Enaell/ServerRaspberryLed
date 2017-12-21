@@ -12,7 +12,7 @@ $(document).ready(function ()
 
 	 $(function () {
 
-	   $('#colorpicker2').farbtastic({ callback: '#color2', width: 500 });
+	   $('#colorpicker2').farbtastic({ callback: '#color2', width: 230 });
 	 });
 
     $('#accordion1 .panel-collapse').on('shown.bs.collapse', function () 

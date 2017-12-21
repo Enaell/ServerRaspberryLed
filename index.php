@@ -23,31 +23,28 @@ if( isset($_GET['submit']) )
    {
     //be sure to validate and clean your variables
      $gifVal = htmlentities($_GET['gifVal']);
-
-   echo($gifVal);
-
-       $gifDirectoryfiles = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/*'); // get all file names
-    foreach($gifDirectoryfiles as $gifFile)
-   { // iterate files
-      if(is_file($gifFile))
-        unlink($gifFile); // delete file
-    }
+     $gifDirectoryfiles = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/*'); // get all file names
+     foreach($gifDirectoryfiles as $gifFile)
+     { // iterate files
+       if(is_file($gifFile))
+         unlink($gifFile); // delete file
+     }
    
-    exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/$gifVal" );
+     exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/$gifVal" );
 }
 ?>
-
 
 <?php
 	if(isset($_POST['submit1']))
 	{
-		exec('sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py > /dev/null 2>/dev/null &');
+		if (filr_exist('$/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt'))
+			unlink('$/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt');
+		//exec('sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py > /dev/null 2>/dev/null &');
 	}
 
 	if(isset($_POST['submit2']))
 	{
 
-    		echo "test";
 		exec('touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt');
 	}
 ?>
@@ -56,6 +53,8 @@ if( isset($_GET['submit']) )
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>LedMatrixContoler</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -186,7 +185,6 @@ if( isset($_GET['submit']) )
 
 
           </div>
-            <button type="submit" class="btn btn-primary stopAllBtn">Stop All</button>
         </div>
       </div>
     </div>
