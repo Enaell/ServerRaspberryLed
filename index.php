@@ -104,7 +104,7 @@ if( isset($_GET['submit']) )
 
     <div class="row" id="mainContent">
       <div class="col-sm-12">
-        <h1 id="mainTitle"> TITLE </h1>
+        <h1 id="mainTitle"> Led Matrix Contoler </h1>
 
 
         <div>
@@ -128,13 +128,13 @@ if( isset($_GET['submit']) )
                     <div id="collapseOneTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneTabOne">
                       <div class="panel-body">
                         <form action="" method="get">
-			              <div class="col-xs-10">
+			              <div class="col-sm-10">
   		                    <div class="colorpicker">
     		                  <div id="colorpicker2"></div>
       	                      <input type="text" name="val1" id="color2" />
 		                    </div>
 			              </div>
-			              <div class="col-xs-2">
+			              <div class="col-sm-2">
                             <input type="submit" name="submit" value="Select Color" class="btn btn-primary selectBtn"/>
 			              </div>
                         </form>
@@ -163,8 +163,8 @@ if( isset($_GET['submit']) )
                           }
                         ?>   
 			            <form action="" method="get">
-			              <div class="col-xs-8"></div>
-			              <div class="col-xs-4">
+			              <div class="col-sm-8"></div>
+			              <div class="col-sm-4">
 			                <input type="text" name="gifVal" onfocus="blur()" id="gifVal"/>
 			                <input name="submitGif" type="submit" class="btn btn-primary " value="Select Gif"/>
 			              </div>
@@ -192,7 +192,7 @@ if( isset($_GET['submit']) )
   </div>
 
   <footer>
-    <p style="font-size:19px;"> UTOOO </p>
+    <p style="font-size:19px;"> LedMatrixContoler </p>
   </footer>
 </body>
 </html>
