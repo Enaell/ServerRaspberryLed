@@ -35,6 +35,23 @@ if( isset($_GET['submit']) )
 ?>
 
 <?php
+   if( isset($_GET['submitSpeed']) )
+   {
+    //be sure to validate and clean your variables
+     $gifVal = htmlentities($_GET['speedVal']);
+     $gifDirectoryfiles = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifSpeed/*'); // get all file names
+     foreach($gifDirectoryfiles as $gifFile)
+     { // iterate files
+       if(is_file($gifFile))
+         unlink($gifFile); // delete file
+     }
+   
+     exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/$speedVal" );
+}
+?>
+
+
+<?php
 	if(isset($_POST['submit1']))
 	{
 		if (filr_exist('$/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt'))
@@ -173,6 +190,33 @@ if( isset($_GET['submit']) )
                     </div>
                   </div>
                 </div>
+
+                <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOneTabOne">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseThreeTabOne" aria-expanded="false" aria-controls="collapseThreeTabOne">
+                        <h4 class="panel-title">Gif Speed</h4>
+                      </a>
+                    </div>
+                    <div id="collapseThreeTabOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeTabOne">
+                      <div class="panel-body">
+                        <form action="" method="get" style="padding-top: 50px; padding-bottom: 50px;">
+                          <div class="col-sm-10">
+
+                            <div class="slidecontainer">
+                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                            </div>
+                            <input type="text" name="speedVal" id="speedVal" style="display: none;"/>
+                          </div>
+                          <div class="col-sm-2" style="padding-top: 10px;">
+                            <input type="submitSpeed" name="submit" value="Select Speed" class="btn btn-primary"/>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               <form method="post">
                 <p>
                   <button name="submit1" class="btn btn-primary validateBtn">Start Led Matrix</button>

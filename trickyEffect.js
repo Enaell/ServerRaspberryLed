@@ -22,6 +22,15 @@ $(document).ready(function ()
 
     });
 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("speedVal");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    output.innerHTML = this.value;
+}
+
 //The reverse of the above on hidden event:
 
     $('#accordion1 .panel-collapse').on('hidden.bs.collapse', function () 
