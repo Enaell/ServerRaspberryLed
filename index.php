@@ -38,15 +38,16 @@ if( isset($_GET['submit']) )
    if( isset($_GET['submitSpeed']) )
    {
     //be sure to validate and clean your variables
-     $gifVal = htmlentities($_GET['speedVal']);
+     $speedVal = htmlentities($_GET['speedVal']);
+
      $gifDirectoryfiles = glob('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifSpeed/*'); // get all file names
      foreach($gifDirectoryfiles as $gifFile)
      { // iterate files
        if(is_file($gifFile))
          unlink($gifFile); // delete file
      }
-   
-     exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/Gifs/$speedVal" );
+
+     exec("touch /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/gifSpeed/$speedVal" );
 }
 ?>
 
@@ -204,12 +205,12 @@ if( isset($_GET['submit']) )
                           <div class="col-sm-10">
 
                             <div class="slidecontainer">
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onchange="$('#speedVal').val($('#myRange').val());">
                             </div>
-                            <input type="text" name="speedVal" id="speedVal" style="display: none;"/>
+                            <input type="text" name="speedVal" id="speedVal" style="display:none"/>
                           </div>
                           <div class="col-sm-2" style="padding-top: 10px;">
-                            <input type="submitSpeed" name="submit" value="Select Speed" class="btn btn-primary"/>
+                            <input type="submit" name="submitSpeed" value="Select Speed" class="btn btn-primary">
                           </div>
                         </form>
                       </div>

@@ -22,14 +22,16 @@ $(document).ready(function ()
 
     });
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("speedVal");
-output.innerHTML = slider.value; // Display the default slider value
+var slider = $('#myRange');
+var output = $('#speedVal');
+output.val(slider.val()); // Display the default slider value
+
+//slider.slider({formatter: function(value){output.val(value);}})
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-    output.innerHTML = this.value;
-}
+//slider.oninput = function() {
+//    output.val(this.value);
+//}
 
 //The reverse of the above on hidden event:
 
