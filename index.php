@@ -55,8 +55,8 @@ if( isset($_GET['submit']) )
 <?php
 	if(isset($_POST['submit1']))
 	{
-		if (filr_exist('$/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt'))
-			unlink('$/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt');
+		if (is_file('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt'))
+			unlink('/home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/stopLedScript.txt');
 		//exec('sudo /usr/bin/python /home/pi/Documents/LEDMatrix/rpi-rgb-led-matrix-master/clock_gif.py > /dev/null 2>/dev/null &');
 	}
 
